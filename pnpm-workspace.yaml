@@ -1,0 +1,41 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  # esbuild's platform binary installer is required by Vite, Vitest, and tsup.
+  esbuild: true
+  # Tailwind uses Parcel's native watcher for incremental development builds.
+  "@parcel/watcher": true
+
+catalog:
+  "@arethetypeswrong/cli": ^0.18.5
+  "@tailwindcss/cli": ^4.3.3
+  "@tailwindcss/vite": ^4.3.3
+  "@testing-library/jest-dom": ^7.0.1
+  "@testing-library/react": ^16.3.2
+  "@testing-library/user-event": ^14.6.4
+  "@types/react": ^19.2.18
+  "@types/react-dom": ^19.2.4
+  "@vitejs/plugin-react": ^6.0.5
+  "@vitest/coverage-v8": ^4.1.10
+  concurrently: ^10.0.5
+  jsdom: ^30.0.1
+  publint: ^0.3.23
+  react: ^19.2.8
+  react-dom: ^19.2.8
+  tailwindcss: ^4.3.3
+  tsup: ^8.5.1
+  typescript: ^6.0.3
+  vite: ^8.2.1
+  vitest: ^4.1.10
+
+minimumReleaseAgeExclude:
+  - "@turbo/darwin-64@2.10.10"
+  - "@turbo/darwin-arm64@2.10.10"
+  - "@turbo/linux-64@2.10.10"
+  - "@turbo/linux-arm64@2.10.10"
+  - "@turbo/windows-64@2.10.10"
+  - "@turbo/windows-arm64@2.10.10"
+  - turbo@2.10.10
+  - concurrently@10.0.5

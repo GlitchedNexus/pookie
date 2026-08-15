@@ -1,0 +1,23 @@
+@layer theme, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+@source "./button/button.tsx";
+
+/* The package omits Tailwind Preflight to avoid global resets in consumer apps. */
+@theme {
+  --color-pookie-accent: #6558d3;
+  --color-pookie-accent-hover: #5145b8;
+  --color-pookie-border: #d6d0f3;
+  --color-pookie-focus: #8d82ef;
+  --color-pookie-on-accent: #ffffff;
+  --color-pookie-surface: #ffffff;
+  --color-pookie-surface-hover: #f3f1ff;
+  --color-pookie-text: #242038;
+  --font-pookie-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --radius-pookie-control: 0.625rem;
+  --shadow-pookie-control: 0 1px 2px rgb(27 20 61 / 12%);
+}

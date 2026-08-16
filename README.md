@@ -4,7 +4,7 @@ A pnpm monorepo for a typed, tested, npm-ready React component library.
 
 ## What's included
 
-- `packages/react`: the publishable `@glitchednexus/pookie` package
+- `packages/react`: the publishable `@glitchednexus/pookie` package, built on Base UI primitives
 - `apps/docs`: a Storybook-powered component workshop with MDX Doc Blocks
 - Tailwind CSS, TypeScript, ESLint, Prettier, Vitest, Testing Library, tsup, and publint
 - Changesets for versioning and changelogs
@@ -48,7 +48,7 @@ export function Example() {
 }
 ```
 
-The published stylesheet contains precompiled Tailwind utilities and omits Preflight. Consumers do not need to install or configure Tailwind.
+The components use Base UI for unstyled behavior and accessibility, then layer Pookie's Tailwind-authored styles on top. The published stylesheet contains precompiled Tailwind utilities and omits Preflight. Consumers do not need to install or configure Tailwind or Base UI themselves.
 
 ## Publishing setup
 

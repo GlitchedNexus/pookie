@@ -35,11 +35,21 @@ describe("Button", () => {
     );
 
     const button = screen.getByRole("button", { name: "Saving" });
-    expect(button).toBeDisabled();
+    expect(button).not.toBeDisabled();
+    expect(button).toHaveAttribute("aria-disabled", "true");
     expect(button).toHaveAttribute("aria-busy", "true");
+    expect(button).toHaveAttribute("data-disabled", "");
 
     await user.click(button);
     expect(handleClick).not.toHaveBeenCalled();
+  });
+
+  it("uses a native disabled state outside loading", () => {
+    render(<Button disabled>Delete</Button>);
+
+    const button = screen.getByRole("button", { name: "Delete" });
+    expect(button).toBeDisabled();
+    expect(button).toHaveAttribute("data-disabled", "");
   });
 
   it("forwards its ref and preserves a consumer class", () => {
@@ -58,5 +68,39 @@ describe("Button", () => {
 
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
     expect(ref.current).toHaveClass("product-action");
+  });
+
+  it("supports Base UI composition and keyboard interaction", async () => {
+    const handleClick = vi.fn();
+    const user = userEvent.setup();
+
+    render(
+      <Button nativeButton={false} onClick={handleClick} render={<div />}>
+        Composed action
+      </Button>,
+    );
+
+    const button = screen.getByRole("button", { name: "Composed action" });
+    expect(button).toHaveAttribute("tabindex", "0");
+
+    button.focus();
+    await user.keyboard("{Enter}");
+
+    expect(handleClick).toHaveBeenCalledOnce();
+  });
+
+  it("merges a Base UI state-aware consumer class", () => {
+    render(
+      <Button
+        disabled
+        className={(state) => (state.disabled ? "is-disabled" : undefined)}
+      >
+        Archive
+      </Button>,
+    );
+
+    expect(screen.getByRole("button", { name: "Archive" })).toHaveClass(
+      "is-disabled",
+    );
   });
 });

@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta, Stories } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Buttons let people trigger an action or advance through a workflow. Pookie's
+button includes accessible loading feedback, ref forwarding, three sizes, and
+primary and secondary visual treatments.
+
+```tsx
+import { Button } from "@glitchednexus/pookie";
+import "@glitchednexus/pookie/styles.css";
+
+export function SaveButton() {
+  return <Button>Save changes</Button>;
+}
+```
+
+## Primary
+
+Use the primary treatment once per focused area for its most important action.
+
+<Canvas of={ButtonStories.Primary} />
+<Controls of={ButtonStories.Primary} />
+
+## Examples
+
+<Stories includePrimary={false} />

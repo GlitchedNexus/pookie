@@ -5,7 +5,7 @@ A pnpm monorepo for a typed, tested, npm-ready React component library.
 ## What's included
 
 - `packages/react`: the publishable `@glitchednexus/pookie` package
-- `apps/docs`: a Vite-powered local documentation and component playground
+- `apps/docs`: a Storybook-powered component workshop with MDX Doc Blocks
 - Tailwind CSS, TypeScript, ESLint, Prettier, Vitest, Testing Library, tsup, and publint
 - Changesets for versioning and changelogs
 - GitHub Actions for CI, dependency updates, release pull requests, and npm publishing
@@ -27,6 +27,7 @@ pnpm install
 
 ```sh
 pnpm dev             # watch the package and run the docs app
+pnpm docs            # run Storybook by itself on port 6006
 pnpm check           # formatting, linting, types, tests, builds, and package validation
 pnpm test:coverage   # generate library test coverage
 pnpm changeset       # describe a releasable change

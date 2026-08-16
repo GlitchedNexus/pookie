@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc --noEmit && vite build",
-    "dev": "vite",
-    "lint": "eslint src vite.config.ts",
+    "build": "tsc --noEmit && storybook build -o dist",
+    "dev": "storybook dev -p 6006",
+    "lint": "eslint src .storybook",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -15,10 +15,12 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^10.5.8",
+    "@storybook/react-vite": "^10.5.8",
     "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
+    "storybook": "^10.5.8",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"

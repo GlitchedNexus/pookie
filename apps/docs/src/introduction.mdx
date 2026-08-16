@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Pookie
+
+Pookie is a small, typed React component library with accessible defaults and
+precompiled styles. Use this Storybook to develop components in isolation,
+exercise their states with controls, and keep usage guidance beside the code.
+
+## Install
+
+```sh
+pnpm add @glitchednexus/pookie
+```
+
+## Use
+
+```tsx
+import { Button } from "@glitchednexus/pookie";
+import "@glitchednexus/pookie/styles.css";
+
+export function Example() {
+  return <Button>Save changes</Button>;
+}
+```
+
+The stylesheet is precompiled and omits Tailwind Preflight, so applications do
+not need their own Tailwind setup and do not receive an unexpected global reset.
